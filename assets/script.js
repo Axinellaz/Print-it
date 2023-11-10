@@ -24,10 +24,34 @@ console.log(arrowLeft);
 let arrowRight = document.querySelector("#banner .arrow_right");
 console.log(arrowRight);
 
-arrowLeft.addEventListener( "click" , (event) => {
-console.log( "Click sur fleche gauche");
+// Différencier le click gauche de la souris du click droit de la souris
+
+let button = document.querySelector("#button");
+
+
+button.addEventListener("mouseup", (e) => {
+
+  let log = document.querySelector("#log");
+  
+  switch (e.button) {
+    case 0:
+      log.textContent = "Left button clicked.";
+      break;
+    case 1:
+      log.textContent = "Middle button clicked.";
+      break;
+    case 2:
+      log.textContent = "Right button clicked.";
+      break;
+    default:
+      log.textContent = `Unknown button code: ${e.button}`;
+  }
+});
+
+/* arrowLeft.addEventListener( "click" , (event) => {
+console.log( "Click sur fleche gauche", event.button);
 });
 
 arrowRight.addEventListener( "click" , (event) => {
 	console.log( "Click sur fleche de droite ");
-	});
+	}); */
