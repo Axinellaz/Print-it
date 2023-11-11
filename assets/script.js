@@ -17,12 +17,56 @@ const slides = [
 	}
 ];
 
+const banner = document.querySelector("#banner");
 
-let arrowLeft = document.querySelector("#banner .arrow_left");
-console.log(arrowLeft);
+const arrowLeft = document.querySelector("#banner .arrow_left");
 
-let arrowRight = document.querySelector("#banner .arrow_right");
-console.log(arrowRight);
+const arrowRight = document.querySelector("#banner .arrow_right");
+
+const txtBanner = document.querySelector(".txt-banner");
+
+const pagination = document.querySelectorAll(".dots .dot")
+
+let sliderCounter = 0;
+
+
+function NextSlider( sens ){
+
+	sliderCounter = sliderCounter + sens;
+
+	if (sliderCounter < 0){
+
+		sliderCounter = slides.length - 1;
+	}
+
+   if (sliderCounter > slides.length - 1){
+		sliderCounter = 0;
+   }
+		
+
+	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
+	txtBanner.innerHTML = slides[sliderCounter].tagLine;
+}
+
+/* function selected() {
+    const dot = document.getElementsByClassName('dot');
+    for (let i = 0; i < dot.length; i++) {
+        dot[i].classList.remove('dot_selected');
+    }
+    dot[i].classList.add('dot_selected');
+
+// On recupere le click suivant ( droite ) 
+
+//arrowRight.addEventListener("click" , NextSlider(1))
+
+
+// On recupere le click précédent (gauche) 
+
+//arrowLeft.addEventListener("click" , NextSlider(-1))
+
+
+
+
 
 // Différencier le click gauche de la souris du click droit de la souris
 /*
@@ -49,10 +93,8 @@ button.addEventListener("mouseup", (e) => {
 });
 */
 
-/* arrowLeft.addEventListener( "click" , (event) => {
-console.log( "Click sur fleche gauche", event.button);
-});
+//arrowLeft.addEventListener( "click" , changeSlider(-1));
 
-arrowRight.addEventListener( "click" , (event) => {
-	console.log( "Click sur fleche de droite ");
-	}); */
+//arrowRight.addEventListener( "click" , changeSlider(1));
+
+
