@@ -25,10 +25,27 @@ const arrowRight = document.querySelector("#banner .arrow_right");
 
 const txtBanner = document.querySelector(".txt-banner");
 
-const pagination = document.querySelectorAll(".dots .dot")
+const indicateurParentDot = document.querySelector(".dots");
+console.log(indicateurParentDot);
 
+// Nous indique sur quel slider on est
 let sliderCounter = 0;
 
+
+const dots = document.querySelectorAll(".dot").forEach(function(indicateur , index){
+indicateur.addEventListener( "click" , function(){
+
+sliderCounter = index;
+
+document.querySelector(".dot_selected").classList.remove("dot_selected");
+indicateur.classList.add("dot_selected");
+
+document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
+txtBanner.innerHTML = slides[sliderCounter].tagLine;
+	
+});
+	
+});
 
 function NextSlider( sens ){
 
@@ -37,35 +54,20 @@ function NextSlider( sens ){
 	if (sliderCounter < 0){
 
 		sliderCounter = slides.length - 1;
-	}
+	};
 
    if (sliderCounter > slides.length - 1){
 		sliderCounter = 0;
-   }
+   };
 		
+   indicateurParentDot.children[sliderCounter].classList.add("dot_selected")
+   document.querySelector(".dot_selected").classList.remove("dot_selected");
 
 	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
 	txtBanner.innerHTML = slides[sliderCounter].tagLine;
-}
 
-/* function selected() {
-    const dot = document.getElementsByClassName('dot');
-    for (let i = 0; i < dot.length; i++) {
-        dot[i].classList.remove('dot_selected');
-    }
-    dot[i].classList.add('dot_selected');
-
-// On recupere le click suivant ( droite ) 
-
-//arrowRight.addEventListener("click" , NextSlider(1))
-
-
-// On recupere le click précédent (gauche) 
-
-//arrowLeft.addEventListener("click" , NextSlider(-1))
-
-
-
+	
+};
 
 
 // Différencier le click gauche de la souris du click droit de la souris
@@ -92,9 +94,5 @@ button.addEventListener("mouseup", (e) => {
   }
 });
 */
-
-//arrowLeft.addEventListener( "click" , changeSlider(-1));
-
-//arrowRight.addEventListener( "click" , changeSlider(1));
 
 
