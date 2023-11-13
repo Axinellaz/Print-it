@@ -33,15 +33,15 @@ let sliderCounter = 0;
 
 
 const dots = document.querySelectorAll(".dot").forEach(function(indicateur , index){
-indicateur.addEventListener( "click" , function(){
+	indicateur.addEventListener( "click" , function(){
 
-sliderCounter = index;
+		sliderCounter = index;
 
-document.querySelector(".dot_selected").classList.remove("dot_selected");
-indicateur.classList.add("dot_selected");
+		document.querySelector(".dot_selected").classList.remove("dot_selected");
+		indicateur.classList.add("dot_selected");
 
-document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
-txtBanner.innerHTML = slides[sliderCounter].tagLine;
+	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
+	txtBanner.innerHTML = slides[sliderCounter].tagLine;
 	
 });
 	
@@ -60,8 +60,8 @@ function NextSlider( sens ){
 		sliderCounter = 0;
    };
 		
-   indicateurParentDot.children[sliderCounter].classList.add("dot_selected")
    document.querySelector(".dot_selected").classList.remove("dot_selected");
+   indicateurParentDot.children[sliderCounter].classList.add("dot_selected")
 
 	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
 	txtBanner.innerHTML = slides[sliderCounter].tagLine;
