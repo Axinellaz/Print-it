@@ -17,34 +17,40 @@ const slides = [
 	}
 ];
 
-const banner = document.querySelector("#banner");
-
 const arrowLeft = document.querySelector("#banner .arrow_left");
+
 
 const arrowRight = document.querySelector("#banner .arrow_right");
 
 const txtBanner = document.querySelector(".txt-banner");
 
 const indicateurParentDot = document.querySelector(".dots");
-console.log(indicateurParentDot);
 
-// Nous indique sur quel slider on est
 let sliderCounter = 0;
 
 
+function afficheSlideTxt(numeroIndex){
+	sliderCounter = numeroIndex;
+
+	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[numeroIndex].image;
+	txtBanner.innerHTML = slides[numeroIndex].tagLine;
+};
+
+
+function removeClass(){
+	document.querySelector(".dot_selected").classList.remove("dot_selected");
+};
+
+
 const dots = document.querySelectorAll(".dot").forEach(function(indicateur , index){
+	
 	indicateur.addEventListener( "click" , function(){
 
 		sliderCounter = index;
-
-		document.querySelector(".dot_selected").classList.remove("dot_selected");
+		removeClass()
 		indicateur.classList.add("dot_selected");
-
-	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
-	txtBanner.innerHTML = slides[sliderCounter].tagLine;
-	
-});
-	
+		afficheSlideTxt(sliderCounter);
+});	
 });
 
 function NextSlider( sens ){
@@ -58,16 +64,15 @@ function NextSlider( sens ){
 
    if (sliderCounter > slides.length - 1){
 		sliderCounter = 0;
-   };
-		
-   document.querySelector(".dot_selected").classList.remove("dot_selected");
-   indicateurParentDot.children[sliderCounter].classList.add("dot_selected")
-
-	document.getElementById("banner-img").src = "assets/images/slideshow/" + slides[sliderCounter].image;
-	txtBanner.innerHTML = slides[sliderCounter].tagLine;
-
+   };	
+	afficheSlideTxt(sliderCounter)
 	
+   	removeClass()
+   	indicateurParentDot.children[sliderCounter].classList.add("dot_selected")
+
 };
+	setInterval("NextSlider(1)", 4000);
+
 
 
 // Différencier le click gauche de la souris du click droit de la souris

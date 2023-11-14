@@ -125,12 +125,19 @@ header {
 /* Gestion des fleches du carrousel */
 #banner .arrow {
 	position: absolute;
+	cursor: pointer;
 }
 #banner .arrow_left {
 	left: 10px;
 }
 #banner .arrow_right {
 	right: 10px;
+}
+
+/* Gestion btn JS event mousse */
+
+.display-none{
+	display: none;
 }
 /* Gestion des points du carrousel */
 .dots {
@@ -139,6 +146,7 @@ header {
 	display: flex;
 }
 .dot {
+	cursor: pointer;
 	margin-inline: 5px;
 	width: 13px;
 	height: 13px;

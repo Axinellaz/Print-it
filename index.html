@@ -21,19 +21,22 @@
 		<img class="banner-img" id="banner-img" src="./assets/images/slideshow/slide1.jpg" alt="Banner Print-it">
 		<p class="txt-banner">Impressions tous formats <span>en boutique et en ligne</span></p>
 
+<!--            Fleches de navigation     -->
+
 		<img class="arrow arrow_left"  onclick="NextSlider(-1)"   src="./assets/images/arrow_left.png" alt="Flèche gauche de couleur blanche pour défiler les images du carroussel" >
 		<img class="arrow arrow_right" onclick="NextSlider(1)"  src="./assets/images/arrow_right.png" alt="Flèche droite de couleur blanche pour défiler les images du carroussel" >
 
-		<!--
-			Bouton & P pour différencier le click droite du click gauche 
+<!--			Bouton & P pour différencier le click droite du click gauche -->
 
+		<div class="display-none">
 			<button id="button" oncontextmenu="event.preventDefault();">
-				Click here with your mouse…
+						Cliquez ici avec votre souris 
 			</button>
 			<p id="log"></p>
-		-->
+		</div>
 
-		
+<!--           Bullets points pagination   -->
+
 		<div class="dots">
 			
 			<span class="dot dot_selected " ></span>
